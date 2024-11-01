@@ -1,0 +1,33 @@
+digraph {
+	synth_return_block_0 [label="synth_return_block_0\l" shape=rect]
+	python_bytecode_block_2 [label="python_bytecode_block_2\l 22: LOAD_CONST\l 24: RETURN_VALUE\l" shape=rect]
+	python_bytecode_block_4 [label="python_bytecode_block_4\l 40: LOAD_CONST\l 42: RETURN_VALUE\l" shape=rect]
+	python_bytecode_block_5 [label="python_bytecode_block_5\l 44: LOAD_CONST\l 46: RETURN_VALUE\l" shape=rect]
+	synth_exit_block_0 [label="synth_exit_block_0\lvariable: exit_var_0\l0=>python_bytecode_block_2\l1=>python_bytecode_block_4" shape=rect]
+	python_bytecode_block_0 [label="python_bytecode_block_0\l  0: RESUME\l  2: LOAD_CONST\l  4: STORE_FAST\l  6: LOAD_FAST\l  8: POP_JUMP_FORWARD_IF_FALSE\l" shape=rect]
+	subgraph cluster_loop_region_0 {
+		color=blue label=loop_region_0
+		synth_asign_block_0 [label="synth_asign_block_0\lexit_var_0 = 1\lbackedge_var_0 = 1" shape=rect]
+		synth_asign_block_1 [label="synth_asign_block_1\lbackedge_var_0 = 0\lexit_var_0 = UNUSED" shape=rect]
+		python_bytecode_block_3 [label="python_bytecode_block_3\l 26: LOAD_FAST\l 28: LOAD_CONST\l 30: BINARY_OP\l 34: STORE_FAST\l 36: LOAD_FAST\l 38: POP_JUMP_BACKWARD_IF_TRUE\l" shape=rect]
+		synth_asign_block_2 [label="synth_asign_block_2\lexit_var_0 = 0\lbackedge_var_0 = 1" shape=rect]
+		synth_exit_latch_block_0 [label="synth_exit_latch_block_0\lvariable: backedge_var_0\l0=>python_bytecode_block_1\l1=>synth_exit_block_0" shape=rect]
+		python_bytecode_block_1 [label="python_bytecode_block_1\l 10: LOAD_FAST\l 12: LOAD_CONST\l 14: COMPARE_OP\l 20: POP_JUMP_FORWARD_IF_FALSE\l" shape=rect]
+	}
+	python_bytecode_block_0 -> python_bytecode_block_1
+	python_bytecode_block_0 -> python_bytecode_block_5
+	python_bytecode_block_1 -> synth_asign_block_2
+	python_bytecode_block_1 -> python_bytecode_block_3
+	synth_asign_block_2 -> synth_exit_latch_block_0
+	python_bytecode_block_3 -> synth_asign_block_0
+	python_bytecode_block_3 -> synth_asign_block_1
+	synth_exit_latch_block_0 -> synth_exit_block_0
+	synth_exit_latch_block_0 -> python_bytecode_block_1 [color=grey constraint=0 style=dashed]
+	synth_asign_block_0 -> synth_exit_latch_block_0
+	synth_asign_block_1 -> synth_exit_latch_block_0
+	python_bytecode_block_5 -> synth_return_block_0
+	synth_exit_block_0 -> python_bytecode_block_2
+	synth_exit_block_0 -> python_bytecode_block_4
+	python_bytecode_block_2 -> synth_return_block_0
+	python_bytecode_block_4 -> synth_return_block_0
+}

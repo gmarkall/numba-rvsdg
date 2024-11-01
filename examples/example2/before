@@ -1,0 +1,10 @@
+digraph {
+	python_bytecode_block_0 [label="python_bytecode_block_0\l  0: RESUME\l  2: LOAD_GLOBAL\l 14: LOAD_GLOBAL\l 26: LOAD_FAST\l 28: PRECALL\l 32: CALL\l 42: PRECALL\l 46: CALL\l 56: GET_ITER\l" shape=rect]
+	python_bytecode_block_1 [label="python_bytecode_block_1\l 58: FOR_ITER\l" shape=rect]
+	python_bytecode_block_2 [label="python_bytecode_block_2\l 60: STORE_FAST\l 62: LOAD_FAST\l 64: LOAD_FAST\l 66: BINARY_SUBSCR\l 76: LOAD_CONST\l 78: BINARY_OP\l 82: LOAD_FAST\l 84: LOAD_FAST\l 86: STORE_SUBSCR\l 90: JUMP_BACKWARD\l" shape=rect]
+	python_bytecode_block_3 [label="python_bytecode_block_3\l 92: LOAD_CONST\l 94: RETURN_VALUE\l" shape=rect]
+	python_bytecode_block_0 -> python_bytecode_block_1
+	python_bytecode_block_1 -> python_bytecode_block_2
+	python_bytecode_block_1 -> python_bytecode_block_3
+	python_bytecode_block_2 -> python_bytecode_block_1
+}

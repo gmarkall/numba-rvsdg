@@ -1,0 +1,7 @@
+digraph {
+	python_bytecode_block_0 [label="python_bytecode_block_0\l  0: RESUME\l  2: LOAD_GLOBAL\l 14: POP_JUMP_FORWARD_IF_FALSE\l" shape=rect]
+	python_bytecode_block_1 [label="python_bytecode_block_1\l 16: LOAD_FAST\l 18: RETURN_VALUE\l" shape=rect]
+	python_bytecode_block_2 [label="python_bytecode_block_2\l 20: LOAD_FAST\l 22: RETURN_VALUE\l" shape=rect]
+	python_bytecode_block_0 -> python_bytecode_block_1
+	python_bytecode_block_0 -> python_bytecode_block_2
+}
